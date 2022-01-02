@@ -1,0 +1,30 @@
+# ALL PROFILES CONFIG
+server:
+  port: 8760
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:      discovery:        locator:          enabled: true
+          lower-case-service-id: true
+      globalcors:        cors-configurations:          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+  profiles:    active: @activeProfile@
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    non-secure-port-enabled: true
+    secure-port-enabled: false
+    prefer-ip-address: true

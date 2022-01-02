@@ -1,0 +1,10 @@
+[Unit]
+Description=Vial+ Platform API Gateway Service.
+After=syslog.target
+
+[Service]
+ExecStart=/opt/vps/platform-gateway/bin/platform-gateway.jar
+SuccessExitStatus=TEMPFAIL 250 SIGKILL
+
+[Install]
+WantedBy=multi-user.target

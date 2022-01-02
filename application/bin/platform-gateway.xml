@@ -1,0 +1,11 @@
+<service>
+  <id>VPS-platform-gateway</id>
+  <name>VPS-platform-gateway</name>
+  <description>This service runs API gateway for services of the Platform VIAL+.</description>
+  <env name="PLATFORM_GATEWAY_HOME" value="%BASE%"/>
+  <executable>java</executable>
+  <arguments>-Xrs -Xmx256m -jar "%BASE%\platform-gateway.jar"</arguments>
+  <log mode="roll-by-size"></log>
+  <logpath>logs</logpath>
+  <onfailure action="restart" delay="10 sec" />
+</service>
